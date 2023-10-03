@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Launch Robovisor -->
+    <rosparam command="load" file="$(find mobile_rob_dev)/config/robotParameters.yaml" ns="robot" />
+    <node name="mobile_rob" pkg="mobile_rob_dev" type="mobile_rob_dev_node" output="screen">
+    </node>
+</launch>

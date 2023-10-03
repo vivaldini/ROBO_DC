@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!-- 
+EnvDC03.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the virtual environment launch of UFSCar DC Department model (version EnvDC03).
+-->
+<launch>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(find envrobotz)/worlds/EnvDC03.world"/>
+        <arg name="paused" value="false"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="gui" value="true"/>
+        <arg name="headless" value="false"/>
+        <arg name="debug" value="false"/>
+    </include>
+</launch>

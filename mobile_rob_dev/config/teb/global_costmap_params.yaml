@@ -1,0 +1,21 @@
+# global_costmap_params.yaml
+
+# Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+# Last Modified: rrdpereira
+
+# Description: This is the global costmap definitions for a differential robot.
+
+global_costmap:
+  global_frame: "map"
+  robot_base_frame: "base_link"
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  use_dijkstra: false
+  track_unknown_space: true
+  resolution: 0.05
+
+  transform_tolerance: 0.5
+  plugins:
+    - {name: "static_layer", type: "costmap_2d::StaticLayer"}
+    - {name: "obstacle_2d_layer", type: "costmap_2d::ObstacleLayer"}
+    - {name: "inflation_layer", type: "costmap_2d::InflationLayer"}

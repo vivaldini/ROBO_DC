@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- 
+mobile_robSAut.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the main ROS launch for the autonomous mode of the robot in a simulation environment.
+-->
+<launch>
+    <include file="$(find mobile_rob_dev)/launch/tf_SAut.launch"/>
+    <include file="$(find mobile_rob_dev_sim)/launch/gazebo.launch"/>
+    <include file="$(find mobile_rob_dev)/launch/move_base_tebLR.launch"/>
+</launch>

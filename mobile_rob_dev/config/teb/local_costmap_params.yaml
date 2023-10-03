@@ -1,0 +1,22 @@
+# local_costmap_params.yaml
+
+# Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+# Last Modified: rrdpereira
+
+# Description: This is the local costmap definitions for a differential robot.
+
+local_costmap:
+  global_frame: "map"
+  robot_base_frame: "base_link"
+  update_frequency: 5.0
+  publish_frequency: 5.0
+  rolling_window: true
+  width: 14
+  height: 14
+  resolution: 0.1
+  transform_tolerance: 0.5
+
+  plugins:
+    - {name: "static_layer", type: "costmap_2d::StaticLayer"}
+    - {name: "obstacle_2d_layer", type: "costmap_2d::ObstacleLayer"}
+    - {name: "inflation_layer", type: "costmap_2d::InflationLayer"}

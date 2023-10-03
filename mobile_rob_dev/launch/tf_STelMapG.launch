@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!-- 
+tf_STelMapG.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the TF definitions for a robot in a simulation environment.
+-->
+<launch>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="world_to_map_broadcaster" args="0 0 0 0 0 0 world map"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_base_rplidar_broadcaster" args="0.255 0 0.0525 0 0 0 base_link base_rplidar"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_rplidar_to_scan_broadcaster" args="0 0 0 0 0 0 base_rplidar scan"/>
+    <!-- <node pkg="tf" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 scan laser 25"/> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="map_nav_broadcaster" args="0 0 0 0 0 0 scan laser"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_base_realsense_broadcaster" args="0.237 0 0.205  0 0 0  base_link base_realsense"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_realsense_to_camera_link_broadcaster" args="0 0 0  0 0 0  base_realsense camera_link"/>
+    <!-- <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_base_sonar_front_broadcaster" args="0.270 0 0.145  0 0 0  base_link base_sonar_front"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_sonar_front_to_sonar_front_broadcaster" args="0 0 0  0 0 0  base_sonar_front sonar_front"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_base_to_sonar_back_broadcaster" args=" -0.278 0 0.145  3.141 0 0  base_link base_sonar_back"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_sonar_back_to_sonar_back_broadcaster" args="0 0 0  0 0 0  base_sonar_back sonar_back"/> -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_left_wheel_broadcaster" args="0 0.25563 0.035863 0 0 0 base_link left_wheel"/>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_right_wheel_broadcaster" args="0 -0.25563 0.035863 0 0 0 base_link right_wheel"/>
+</launch>

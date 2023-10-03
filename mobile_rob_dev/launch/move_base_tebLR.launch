@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!-- 
+move_base_tebLR.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the move base launch for differential robot with RPLidar A1.
+-->
+<launch>
+   <include file="$(find mobile_rob_dev)/config/teb/amcl_diffLR.launch"/>
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      <rosparam file="$(find mobile_rob_dev)/config/teb/costmap_common_params.yaml" command="load" ns="global_costmap"/>
+      <rosparam file="$(find mobile_rob_dev)/config/teb/costmap_common_params.yaml" command="load" ns="local_costmap"/>
+      <rosparam file="$(find mobile_rob_dev)/config/teb/local_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find mobile_rob_dev)/config/teb/global_costmap_params.yaml" command="load"/>
+      <rosparam file="$(find mobile_rob_dev)/config/teb/teb_local_planner_params.yaml" command="load"/>
+      <remap from="cmd_vel" to="robot/cmd_vel"/>
+      <param name="shutdown_costmaps" value="false"/>
+      <param name="oscillation_timeout" value="10.0"/>
+      <param name="oscillation_distance" value="0.2"/>
+      <param name="conservative_reset_dist" value="0.10"/>      
+      <param name="base_global_planner" value="global_planner/GlobalPlanner"/>
+      <param name="use_dijkstra" value="false"/> 
+      <param name="planner_frequency" value="1.0"/>
+      <param name="planner_patience" value="5.0"/>
+      <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS"/>
+      <param name="controller_frequency" value="5.0"/>
+      <param name="controller_patience" value="5.0"/>
+   </node>
+   <node name="map_server" pkg="map_server" type="map_server" args="$(find mobile_rob_dev)/maps/PisoInferior.yaml" output="screen">
+   <!-- <node name="map_server" pkg="map_server" type="map_server" args="$(find mobile_rob_dev)/maps/PisoSuperior.yaml" output="screen"> -->
+      <param name="frame_id" value="map"/>
+   </node>
+   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mobile_rob_dev)/rviz/rviz_navigation.rviz"/>
+</launch>

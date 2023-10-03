@@ -1,0 +1,13 @@
+# angle_filters.yaml
+
+# Created by: rsinoue on 01.Out.2022
+# Last Modified: rrdpereira
+
+# Description: This is the field of view configurations for the RPLidar A1.
+
+scan_filter_chain:
+- name: angle
+  type: laser_filters/LaserScanAngularBoundsFilter
+  params:
+    lower_angle: -1.57
+    upper_angle: 1.57

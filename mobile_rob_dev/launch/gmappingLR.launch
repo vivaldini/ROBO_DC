@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!-- 
+gmappingLR.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the start of gmapping configurations with RPlidar.
+-->
+<launch>
+  <node pkg="gmapping" type="slam_gmapping" name="slam_gmapping" output="log">
+    <param name="maxUrange" value="12"/>
+    <param name="maxRange" value="12"/>
+    <param name="minimumScore" value="50"/>    
+    <param name="xmin" value="0.1"/>
+    <param name="ymin" value="-12"/>
+    <param name="xmax" value="12"/>
+    <param name="ymax" value="12"/>
+    <param name="delta" value="0.05"/>
+    <param name="particles" value="100"/>
+    <param name="temporalUpdate" value="5.0"/>
+    <param name="angularUpdate" value="0.2"/>
+    <param name="linearUpdate" value="0.25"/>
+    <param name="map_update_interval" value="2.0"/>
+  </node>
+</launch>

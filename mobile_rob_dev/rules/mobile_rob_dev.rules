@@ -1,0 +1,18 @@
+#This file goes in /etc/udev/rules.d
+# To debug if a rule is applied to a certain device:
+# udevadm --debug test -a -p $(udevadm info -q path -n /dev/ttyACM0)
+SUBSYSTEMS=="usb", ATTRS{serial}=="64935343233351315262", SYMLINK+="arduino"
+SUBSYSTEMS=="usb", ATTRS{serial}=="AH00NHTL", SYMLINK+="waspmote"
+SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Hokuyo Data Flex for USB", SYMLINK+="hokuyo"
+SUBSYSTEMS=="usb", ATTRS{manufacturer}=="u-blox AG - www.u-blox.com", SYMLINK+="gps"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="10c4", ATTRS{idProduct}=="ea60", SYMLINK+="cp210x"
+SUBSYSTEMS=="usb", ATTRS{manufacturer}=="Prolific Technology Inc.", SYMLINK+="pl2303"
+SUBSYSTEMS=="usb", ATTRS{serial}=="000001010000", SYMLINK+="myahrs"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", SYMLINK+="imu"
+
+SUBSYSTEMS=="usb", ATTRS{interface}=="CP2102 USB to UART Bridge Controller", DRIVERS=="cp210x", SYMLINK+="lidar"
+SUBSYSTEMS=="usb", ATTRS{interface}=="Board CDC", SYMLINK+="boardCDC"
+SUBSYSTEMS=="usb-serial", DRIVERS=="ch341-uart", SYMLINK+="zlac8015d"
+
+
+SUBSYSTEMS=="usb", GROUP="plugdev", MODE="0666"

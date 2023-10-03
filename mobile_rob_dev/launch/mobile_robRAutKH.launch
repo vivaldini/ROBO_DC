@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- 
+mobile_robRAutKH.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the main ROS launch for the autonomous mode of the robot with Hokuyo UST 10 LX.
+-->
+<launch>
+    <rosparam command="load" file="$(find mobile_rob_dev)/config/robotParameters.yaml" ns="robot"/>
+    <node name="mobile_rob" pkg="mobile_rob_dev" type="mobile_rob_dev_node" output="screen"/>
+    <include file="$(find mobile_rob_dev)/launch/tf_RAutKH.launch"/>
+    <include file="$(find mobile_rob_dev)/launch/hokuyo_ust_10lx.launch"/>    
+    <include file="$(find mobile_rob_dev)/launch/move_base_tebKH.launch"/>
+</launch>

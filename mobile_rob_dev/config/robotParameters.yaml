@@ -1,0 +1,24 @@
+#*********************************************************************
+# Code developep by LARIS-UFSCar team.
+# Team:
+# Undergrad student: João Carlos Tonon Campi
+# Master student: Leandro José Evilásio Campos
+# Master student:José Ceron Neto
+# Doctor student:Robson Rogério Dutra Pereira
+# Prof. Roberto Santos Inoue
+# Universidade Federal de São Carlos (UFSCar)
+# Departamento de Computação (DC)
+# Laboratory of Autonomous Robots and Intelligent Systems (LARIS)
+
+# Contato: rsinoue@ufscar.br
+
+#**************************************************************************/
+
+# Serial Port Param
+
+  portName: "/dev/ttyACM0"  #Default: "/dev/ttyACM0"
+  baudRate: 115200         #Default: 115200
+
+# Robot Params
+  wheelRadius: 0.065
+  robotRadius: 0.2585

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- 
+mobile_robSTel.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the main ROS launch for the teleoperation of the robot in a simulation environment.
+-->
+<launch>
+    <include file="$(find mobile_rob_dev)/launch/tf_STelMap.launch"/>
+    <include file="$(find mobile_rob_dev_sim)/launch/gazebo.launch"/>
+    <node name="map_server" pkg="map_server" type="map_server" args="$(find mobile_rob_dev)/maps/mob_rob_2023_01_30__15_33_22.yaml" output="screen">
+        <param name="frame_id" value="map"/>
+    </node>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mobile_rob_dev)/rviz/rviz_navigation.rviz"/>
+    <node name="teleop_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="cmd_vel:=/robot/cmd_vel" output="screen">
+        <param name="speed" value="0.2"/>
+        <param name="turn" value="0.2"/>
+    </node>
+</launch>

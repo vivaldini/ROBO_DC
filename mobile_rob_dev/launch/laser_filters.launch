@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+laser_filters.launch
+
+Created by: rsinoue on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the launch of the field of view for the RPLidar A1.
+-->
+<launch>
+    <node pkg="laser_filters" type="scan_to_scan_filter_chain" output="screen" name="laser_scan" args="scan:=base_scan">
+        <rosparam command="load" file="$(find mobile_rob_dev)/config/angle_filters.yaml" />
+        <remap from="scan_filtered" to="scan"/>
+    </node>
+</launch>

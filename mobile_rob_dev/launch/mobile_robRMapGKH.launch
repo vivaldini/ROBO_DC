@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!-- 
+mobile_robRMapGKH.launch
+
+Created by: Robson Rogério Dutra Pereira on 01.Out.2022
+Last Modified: rrdpereira
+
+Description: This is the main ROS launch for the GMapping mode of the robot with Hokuyo UST 10 LX.
+-->
+<launch>
+    <rosparam command="load" file="$(find mobile_rob_dev)/config/robotParameters.yaml" ns="robot"/>
+    <node name="mobile_rob" pkg="mobile_rob_dev" type="mobile_rob_dev_node" output="screen"/>
+    <include file="$(find mobile_rob_dev)/launch/tf_RTelMapGKH.launch"/>
+    <include file="$(find mobile_rob_dev)/launch/hokuyo_ust_10lx.launch"/>
+    <include file="$(find mobile_rob_dev)/launch/gmappingHK.launch"/>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mobile_rob_dev)/rviz/rviz_navigation.rviz"/>  
+    <node name="teleop_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py" args="cmd_vel:=/robot/cmd_vel" output="screen">
+        <param name="speed" value="0.2"/>
+        <param name="turn" value="0.2"/>
+    </node>
+</launch>
