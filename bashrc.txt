@@ -1,0 +1,13 @@
+source /opt/ros/noetic/setup.bash
+###
+export ROS_HOSTNAME=localhost
+export ROS_MASTER_URI=http://localhost:11311
+###
+source /usr/share/gazebo/setup.sh
+
+source /home/ubuntu/laris_wksp/devel/setup.bash
+
+export ROS_WORKSPACES=/home/ubuntu/laris_wksp
+
+export PROMPT_COMMAND="echo -n \[\$(date +%H:%M:%S)\]\ "
+source ~/Laris38Pi/bin/activate
