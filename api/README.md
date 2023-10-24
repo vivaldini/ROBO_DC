@@ -29,6 +29,10 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 Antes de começar a desenvolver, verifique se você atendeu aos seguintes requisitos:
 <!---Estes são apenas requisitos de exemplo. Adicionar, duplicar ou remover conforme necessário--->
+```bash
+pip install -r requirements.txt
+```
+
 * Você instalou a as dependências do projeto `requirements.txt`
 * Você tem uma máquina virtual executando ROS para simular a intereção com o robô. 
 
