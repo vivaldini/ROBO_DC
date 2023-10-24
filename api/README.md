@@ -1,6 +1,6 @@
-<h1 align="center"> API Robô do DC  </h1>
-<h4 align="center"> <a href="https://site.dc.ufscar.br/"> DC - Departamento de Computação</a>  </h4>
-<h4 align="center"> <a href="https://www.ufscar.br/">UFSCar - Universidade Federal de São Carlos</a>  </h4>
+<h1 > API Robô do DC  </h1>
+<h4 > <a href="https://site.dc.ufscar.br/"> DC - Departamento de Computação</a>  </h4>
+<h4 > <a href="https://www.ufscar.br/">UFSCar - Universidade Federal de São Carlos</a>  </h4>
 
 
 <!---Esses são exemplos. Veja https://shields.io para outras pessoas ou para personalizar este conjunto de escudos. Você pode querer incluir dependências, status do projeto e informações de licença aqui--->
