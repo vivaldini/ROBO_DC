@@ -12,23 +12,24 @@ This package offers a toolkit for autonomous robots.
    - RPLidar
    - Velodyne
 
-## Required packages in GIT links:
-
-    git clone https://github.com/rrdpereira/envrobotz.git
-
-    git clone https://github.com/rrdpereira/mobile_rob_dev_sim.git  
 
 ## Required packages in apt-get:
 
-    sudo apt-get install ros-noetic-amcl ros-noetic-costmap-converter ros-noetic-depthimage-to-laserscan ros-noetic-dynamic-reconfigure ros-noetic-ddynamic-reconfigure ros-noetic-ddynamic-reconfigure-dbgsym ros-noetic-ddynamic-reconfigure-python ros-noetic-geometry2 ros-noetic-hector-slam ros-noetic-move-base ros-noetic-move-base-flex ros-noetic-navigation ros-noetic-openslam-gmapping ros-noetic-rplidar-ros ros-noetic-slam-gmapping ros-noetic-spatio-temporal-voxel-layer ros-noetic-teb-local-planner ros-noetic-teleop-twist-keyboard ros-noetic-teleop-twist-joy ros-noetic-urg-node ros-noetic-rtabmap ros-noetic-rtabmap-ros ros-noetic-octomap ros-noetic-octomap-ros ros-noetic-octomap-rviz-plugins ros-noetic-octomap-server ros-noetic-octovis ros-noetic-imu-filter-madgwick ros-noetic-robot-localization ros-noetic-robot-pose-ekf ros-noetic-pointcloud-to-laserscan ros-noetic-rosbridge-server ros-noetic-map-server ros-noetic-realsense2-camera ros-noetic-realsense2-description ros-noetic-cmake-modules ros-noetic-velodyne-gazebo-plugins ros-noetic-ompl ros-noetic-navfn ros-noetic-dwa-local-planner ros-noetic-global-planner ros-noetic-costmap-2d ros-noetic-robot-self-filter ros-noetic-ros-numpy ros-noetic-pcl-ros ros-noetic-pcl-conversions ros-noetic-grid-map-costmap-2d ros-noetic-grid-map-ros ros-noetic-grid-map-filters ros-noetic-grid-map-visualization ros-noetic-tf2-tools pcl-tools
+```bash
+sudo apt-get install ros-noetic-amcl ros-noetic-costmap-converter ros-noetic-depthimage-to-laserscan ros-noetic-dynamic-reconfigure ros-noetic-ddynamic-reconfigure ros-noetic-ddynamic-reconfigure-dbgsym ros-noetic-ddynamic-reconfigure-python ros-noetic-geometry2 ros-noetic-hector-slam ros-noetic-move-base ros-noetic-move-base-flex ros-noetic-navigation ros-noetic-openslam-gmapping ros-noetic-rplidar-ros ros-noetic-slam-gmapping ros-noetic-spatio-temporal-voxel-layer ros-noetic-teb-local-planner ros-noetic-teleop-twist-keyboard ros-noetic-teleop-twist-joy ros-noetic-urg-node ros-noetic-rtabmap ros-noetic-rtabmap-ros ros-noetic-octomap ros-noetic-octomap-ros ros-noetic-octomap-rviz-plugins ros-noetic-octomap-server ros-noetic-octovis ros-noetic-imu-filter-madgwick ros-noetic-robot-localization ros-noetic-robot-pose-ekf ros-noetic-pointcloud-to-laserscan ros-noetic-rosbridge-server ros-noetic-map-server ros-noetic-realsense2-camera ros-noetic-realsense2-description ros-noetic-cmake-modules ros-noetic-velodyne-gazebo-plugins ros-noetic-ompl ros-noetic-navfn ros-noetic-dwa-local-planner ros-noetic-global-planner ros-noetic-costmap-2d ros-noetic-robot-self-filter ros-noetic-ros-numpy ros-noetic-pcl-ros ros-noetic-pcl-conversions ros-noetic-grid-map-costmap-2d ros-noetic-grid-map-ros ros-noetic-grid-map-filters ros-noetic-grid-map-visualization ros-noetic-tf2-tools pcl-tools
+```
 
 ## Check dependences on workspace with:
 
-        rosdep install --from-paths src --ignore-src -r -y
+```bash
+rosdep install --from-paths src --ignore-src -r -y
+```
 
 ## Build workspace command:
 
-    catkin_make -DCMAKE_BUILD_TYPE=Release   
+```bash
+catkin_make -DCMAKE_BUILD_TYPE=Release   
+```
 
 ## Step 0 - Ubuntu 20.04
 
@@ -51,6 +52,7 @@ Create a bootable USB drive using a tool like "Rufus" on Windows or "Etcher" on 
  
  0.2.3 - In the boot menu, choose the option corresponding to the USB drive you created and press Enter.
 ```
+
 **0.3: Installing Ubuntu 20.04**
 ```bash
 0.3.1 - The Ubuntu Live USB will start. You can try Ubuntu without installing it, but for installation, click the "Install Ubuntu" icon on the desktop.
@@ -107,8 +109,7 @@ In this example, the manufacturer is "NVIDIA Corporation," and the model is "GeF
 To ensure smooth performance, verify the appropriate driver of your graphics card. 
 
 Open a terminal and enter the following command to list available drivers:
-```bash
-   ubuntu-drivers devices
+```bashubuntu-drivers devices
 ```
 
 **1.3: Install graphics driver** 
@@ -169,86 +170,101 @@ pip install numpy scipy scikit-learn scikit-image
 With the environment set up and graphics drivers, you're now ready to install the MRS System.
 
 
-## Step 2 - Instal MRS System
-
-Follow the instructions [here](https://github.com/ctu-mrs/mrs_uav_system#installation) (on Installation topic) to install MRS System or use the commands:
-
-```bash 
-cd /tmp
-echo '
-GIT_PATH=~/git
-mkdir -p $GIT_PATH
-cd $GIT_PATH
-sudo apt-get -y install git
-git clone https://github.com/ctu-mrs/mrs_uav_system
-cd mrs_uav_system
-git checkout master
-git pull
-./install.sh -g $GIT_PATH
-source ~/.bashrc' > clone.sh && source clone.sh
-```
-## Step 3 - Upload class's package
-
-```bash 
-cd ~/workspace/src 
-git clone https://github.com/vivaldini/RMA.git 
-catkin build 
-bash ../devel/setup.bash
-```
-
-## Step 4 - Setting Gazebo
-
-Start Gazebo by entering the following at the command prompt.
-
-```bash 
-gazebo
-```
-
-Click on Edit -> Model Editor
-
-Click in File -> Save as
-
-Save the model in the Location: /workspace/src/RMA/models.
-
-## Step 5
-
-To add the directory to models and worlds:
-
-   - Open gazebo
-   - Click on "Insert" (upper left)
-   - Click "Add Path" (upper left)
-   - Choose the paste ~/workspace/src/RMA/models
-   - Close gazebo
-
-## Step 6 - Test the environment
-
-- UAV
-```bash 
-cd
-bash ~/workspace/src/RMA/src/start/start.sh
-```
-
-- Multi UAVs run
+### Install Dependencies:
+Ensure you have the necessary tools installed for a smooth installation. Run these commands:
 
 ```bash
-cd
-bash ~/workspace/src/RMA/src/start/multiStart.sh
-
+sudo apt-get update -y
 ```
-
-### Extra 1: Ways to stop the simulation
-
-Press “CTRL + a” and after “k” in the prompt.
-
-If something remains open:
 
 ```bash
-Ctrl + K  A
-alias killg='killall gzclient && killall gzserver && killall rosmaster'
-killall px4
-tmux kill-server
+sudo apt-get install -y nautilus-open-terminal
+```
+```bash
+sudo apt-get install gedit ssh libjpeg-dev libpng-dev libtiff-dev libx11-dev libavformat-dev libavdevice-dev libavcodec-dev libavutil-dev libswresample-dev libglu-dev libdc1394-22-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev python-pip3 git gitman tmux tmuxinator
+
+```
+Note. Case error check the package.
+** Updating pip** 
+
+To ensure you have the latest version of pip, you can run the following command:
+
+```bash
+python3 -m pip install --upgrade pip
 ```
 
+```bash
+pip install numpy scipy scikit-learn scikit-image
+```
+
+With the environment set up and graphics drivers, you're now ready to install the MRS System.
+
+
+## Step 2 - Install the ROS Noetic
+
+Install the Robot Operating System (Noetic):
+
+```bash
+curl https://ctu-mrs.github.io/ppa-unstable/add_ros_ppa.sh | bash
+```
+```bash
+sudo apt install ros-noetic-desktop-full
+```
+
+
+## Step 3 - Package the SuperMegaBot 
+
+
+### Create the directories
+
+```bash
+mkdir -p /home/$USER/workspace/src
+cd /home/$USER/workspace/
+```
+
+
+### Initialize the Catkin workspace
+```bash
+catkin init
+catkin config --extend /opt/ros/noetic
+catkin config -DCMAKE_BUILD_TYPE=Release
+```
+### Navigate to the directory of `src` to clone the `SuperMegaBot_SMB project`
+
+```bash
+cd /home/$USER/workspace/src/smb_workspace
+git clone https://github.com/rrdpereira/SuperMegaBot_SMB.git
+```
+
+### Build the project
+```bash
+cd /home/$USER/workspace/
+catkin build
+```
+
+### Source your catkin workspace
+```bash
+source /home/$USER/workspace/devel/setup.bash
+```
+
+### (optional) may you find some errors, so you can use the "Magic" of rosdep
+```bash
+cd /home/$USER/workspace/src/smb_workspace
+rosdep install --from-paths . --ignore-src --os=ubuntu:focal -r -y
+
+cd /home/$USER/workspace/src/smb_workspace
+catkin build
+```
+
+
+## Required packages in GIT links:
+
+```bash
+cd /home/$USER/workspace/src
+git clone [git@github.com:vivaldini/ROBO_DC.git](https://github.com/vivaldini/ROBO_DC.git)
+cd /home/$USER/workspace/
+catkin build
+```
 
 ### Extra 2 - Learning ROS
 
