@@ -1,4 +1,4 @@
-# ROBO_DC_UFSCar
+# ROBO DC - UFSCar
 
 This package offers a toolkit for autonomous robots.
  
@@ -148,27 +148,6 @@ Remember to restart your system if required after installing the drivers.
 sudo reboot
 ```
 
-### Install Dependencies:
-Ensure you have the necessary tools installed for a smooth installation. Run these commands:
-
-```bash 
-sudo apt-get install nautilus-open-terminal ssh libjpeg-dev libpng-dev libtiff-dev libx11-dev libavformat-dev libavdevice-dev libavcodec-dev libavutil-dev libswresample-dev libglu-dev libdc1394-22-dev libglu1-mesa-dev freeglut3-dev mesa-common-dev python-pip3 git gitman tmux tmuxinator
-```
-
-** Updating pip** 
-
-To ensure you have the latest version of pip, you can run the following command:
-
-```bash
-python3 -m pip install --upgrade pip
-```
-
-```bash
-pip install numpy scipy scikit-learn scikit-image
-```
-
-With the environment set up and graphics drivers, you're now ready to install the MRS System.
-
 
 ### Install Dependencies:
 Ensure you have the necessary tools installed for a smooth installation. Run these commands:
@@ -229,6 +208,7 @@ catkin init
 catkin config --extend /opt/ros/noetic
 catkin config -DCMAKE_BUILD_TYPE=Release
 ```
+
 ### Navigate to the directory of `src` to clone the `SuperMegaBot_SMB project`
 
 ```bash
@@ -261,7 +241,7 @@ catkin build
 
 ```bash
 cd /home/$USER/workspace/src
-git clone [git@github.com:vivaldini/ROBO_DC.git](https://github.com/vivaldini/ROBO_DC.git)
+git clone [https://github.com/vivaldini/ROBO_DC.git](https://github.com/vivaldini/ROBO_DC.git)
 cd /home/$USER/workspace/
 catkin build
 ```
