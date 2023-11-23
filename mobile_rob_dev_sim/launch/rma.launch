@@ -13,10 +13,10 @@ Description: This is the gazebo launch for the mobile_rob_dev_sim V6 robot in a 
   <arg name="z" default="0.0"/>
   <arg name="roll" default="0.0"/>
   <arg name="pitch" default="0.0"/>
-  <arg name="yaw" default="0.0"/>
+  <arg name="yaw" default="-2.45"/>
   <param name="robot_description" command="$(find xacro)/xacro --inorder $(find mobile_rob_dev_sim)/urdf/mobile_rob_dev_sim.urdf use_nominal_extrinsics:=true add_plug:=true"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find envrobotz)/worlds/EnvDC06.world"/>
+    <arg name="world_name" value="$(find envrobotz)/worlds/rma_class.world"/>
     <arg name="paused" value="false"/>
     <arg name="use_sim_time" value="true"/>
     <arg name="gui" value="true"/>
